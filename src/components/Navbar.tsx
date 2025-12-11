@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { Menu, X, LogOut } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,14 +34,14 @@ const Navbar = () => {
       <div className="container px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a
-            href="#"
+          <Link
+            to="/"
             className={`text-2xl font-bold transition-colors ${
               isScrolled ? "text-primary" : "text-primary-foreground"
             }`}
           >
             Servio
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -53,9 +56,28 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant={isScrolled ? "default" : "hero"} size="sm">
-              Get Started
-            </Button>
+            
+            {user ? (
+              <div className="flex items-center gap-4">
+                <span className={`text-sm ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
+                  {user.email}
+                </span>
+                <Button
+                  variant={isScrolled ? "outline" : "heroOutline"}
+                  size="sm"
+                  onClick={signOut}
+                >
+                  <LogOut className="w-4 h-4" />
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <Link to="/auth">
+                <Button variant={isScrolled ? "default" : "hero"} size="sm">
+                  Get Started
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -85,9 +107,21 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" size="sm" className="w-full">
-                Get Started
-              </Button>
+              {user ? (
+                <>
+                  <span className="text-sm text-muted-foreground">{user.email}</span>
+                  <Button variant="outline" size="sm" onClick={signOut}>
+                    <LogOut className="w-4 h-4" />
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="default" size="sm" className="w-full">
+                    Get Started
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         )}
