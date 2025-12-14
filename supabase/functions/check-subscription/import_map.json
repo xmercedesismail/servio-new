@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "express": "npm:express@4.18.2",
+    "cors": "npm:cors@2.8.5",
+    "dotenv": "npm:dotenv@16.4.5",
+    "@supabase/supabase-js": "npm:@supabase/supabase-js@2.44.2",
+    "@sendgrid/mail": "npm:@sendgrid/mail@8.1.0"
+  }
+}

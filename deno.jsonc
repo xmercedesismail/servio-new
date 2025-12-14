@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true
+  },
+  "imports": {
+    // We explicitly define all our core NPM dependencies here
+    "npm:hono": "npm:hono@^3.12.0",
+    "npm:@supabase/supabase-js": "npm:@supabase/supabase-js@^2.43.0",
+    "npm:dotenv": "npm:dotenv@^16.4.5"
+  },
+  // This is the critical setting: it tells Deno to manage the virtual node_modules directory
+  "nodeModulesDir": "auto"
+}

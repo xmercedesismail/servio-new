@@ -1,0 +1,69 @@
+# Query: 'next'
+# ContextLines: 1
+
+15 results - 9 files
+
+apply_all_phase1_phase2.sh:
+   223  import sgMail from '@sendgrid/mail';
+   224: import type { NextApiRequest, NextApiResponse } from 'next';
+   225  
+
+   711  cat > api/stripe/create-checkout-session.ts <<'EOF'
+   712: import type { NextApiRequest, NextApiResponse } from 'next';
+   713  import Stripe from 'stripe';
+
+   740  cat > api/stripe/customer-portal.ts <<'EOF'
+   741: import type { NextApiRequest, NextApiResponse } from 'next';
+   742  import Stripe from 'stripe';
+
+   764  cat > api/stripe/webhook.ts <<'EOF'
+   765: import type { NextApiRequest, NextApiResponse } from 'next';
+   766  import Stripe from 'stripe';
+
+   833  import { createClient } from '@supabase/supabase-js';
+   834: import type { NextApiRequest, NextApiResponse } from 'next';
+   835  
+
+   909  import { createClient } from '@supabase/supabase-js';
+   910: import type { NextApiRequest, NextApiResponse } from 'next';
+   911  
+
+  1411  import sgMail from '@sendgrid/mail';
+  1412: import type { NextApiRequest, NextApiResponse } from 'next';
+  1413  
+
+api/admin/check.ts:
+  1: import { Request, Response } from 'express';
+  2  import { createClient } from '@supabase/supabase-js';
+
+api/admin/reply.ts:
+  2  import sgMail from '@sendgrid/mail';
+  3: import { Request, Response } from 'express';
+  4  
+
+api/admin/submission/delete.ts:
+  1  import { createClient } from '@supabase/supabase-js';
+  2: import { Request, Response } from 'express';
+  3  
+
+api/admin/submission/mark-responded.ts:
+  1  import { createClient } from '@supabase/supabase-js';
+  2: import { Request, Response } from 'express';
+  3  
+
+api/client/reply.ts:
+  2  import sgMail from '@sendgrid/mail';
+  3: import { Request, Response } from 'express';
+  4  
+
+api/stripe/create-checkout-session.ts:
+  1: import { Request, Response } from 'express';
+  2  import Stripe from 'stripe';
+
+api/stripe/customer-portal.ts:
+  1: import { Request, Response } from 'express';
+  2  import Stripe from 'stripe';
+
+api/stripe/webhook.ts:
+  1: import { Request, Response } from 'express';
+  2  import Stripe from 'stripe';

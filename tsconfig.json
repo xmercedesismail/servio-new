@@ -1,16 +1,36 @@
 {
-  "files": [],
-  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
+    "target": "es2020",
+    
+    // ⬅️ FIX 1: Change to 'esnext' to satisfy the 'moduleResolution': 'bundler' requirement
+    "module": "esnext", 
+
+    // ⬅️ FIX 2: Set to 'bundler' (Unlocks allowImportingTsExtensions)
+    "moduleResolution": "bundler",
+    
+    // Standard JSX setup for React
+    "jsx": "react-jsx", 
+
+    // ⬅️ FIX 3: Required alongside 'moduleResolution': 'bundler'
+    "noEmit": true,
+    
+    // ⬅️ FIX 4: Now properly enabled
+    "allowImportingTsExtensions": true, 
+    
+    // Base URL for path mapping
+    "baseUrl": "./src", 
+    
+    // Path mapping for aliases like '@/components'
+    "paths": { 
+      "@/*": ["./*"] 
     },
-    "noImplicitAny": false,
-    "noUnusedParameters": false,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": false
-  }
+    
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

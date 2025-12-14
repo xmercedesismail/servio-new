@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    
+    // ⬅️ REMOVE rootDir setting
+    
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true
+  },
+  // ⬅️ CHANGE include to target the current directory
+  "include": ["**/*.ts"], 
+  "exclude": ["node_modules", "dist"] 
+}
